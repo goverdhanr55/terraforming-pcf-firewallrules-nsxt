@@ -48,14 +48,14 @@ resource "nsxt_l4_port_set_ns_service" "pcf_dns_udp_ns_service" {
 resource "nsxt_ip_protocol_ns_service" "pcf_ipsec_ns_service" {
   description  = "IPSec Service for PCF"
   display_name = "pcf_ipsec_ns_service"
-  protocol     = "AH"
+  protocol     = "51"
 }
 
 # IPSec Encapsulation Service for PCF
 resource "nsxt_ip_protocol_ns_service" "pcf_ipsec_encapsulation_ns_service" {
   description  = "IPSec Encapsulation Service for PCF"
   display_name = "pcf_ipsec_encapsulation_ns_service"
-  protocol     = "ESP"
+  protocol     = "50"
 }
 
 # IPSec UDP Encapsulation Service for PCF
