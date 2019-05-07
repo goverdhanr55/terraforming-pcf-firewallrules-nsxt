@@ -5,12 +5,12 @@
 # Create FIREWALL SECTIONS and RULES for PCF
 
 # Firewall Section for PCF
-resource "nsxt_firewall_section" "pcf-foundation-firewall-section" {
+resource "nsxt_firewall_section" "pcf_foundation_firewall_section" {
   description  = "PCF Foundation Firewall Section"
-  display_name = "pcf-foundation-firewall-section"
+  display_name = "pcf_foundation_firewall_section"
   applied_to {
       target_type = "NSGroup"
-      target_id   = "${nsxt_ns_group.nsg-pcf.id}"
+      target_id   = "${nsxt_ns_group.nsg_pcf.id}"
     }
   section_type = "LAYER3"
   stateful     = true
@@ -26,15 +26,15 @@ resource "nsxt_firewall_section" "pcf-foundation-firewall-section" {
     direction    = "IN"
     source {
       target_type = "NSGroup"
-      target_id   = "${nsxt_ns_group.nsg-pcf-bastion.id}"
+      target_id   = "${nsxt_ns_group.nsg_pcf_bastion.id}"
     }
     destination {
       target_type = "NSGroup"
-      target_id   = "${nsxt_ns_group.nsg-pcf-deployment.id}"
+      target_id   = "${nsxt_ns_group.nsg_pcf_deployment.id}"
     }
       service {
       target_type = "NSService"
-      target_id   = "${nsxt_l4_port_set_ns_service.pcf-ssh-ns-service.id}"
+      target_id   = "${nsxt_l4_port_set_ns_service.pcf_ssh_ns_service.id}"
       }
 }
 }
