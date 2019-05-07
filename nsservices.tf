@@ -44,6 +44,54 @@ resource "nsxt_l4_port_set_ns_service" "pcf_dns_udp_ns_service" {
   destination_ports = ["53"]
 }
 
+# NTP Service for PCF - TCP
+resource "nsxt_l4_port_set_ns_service" "pcf_ntp_tcp_ns_service" {
+  description       = "NTP Service for PCF - TCP"
+  display_name      = "pcf_ntp_tcp_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["123"]
+}
+
+# NTP Service for PCF - UDP
+resource "nsxt_l4_port_set_ns_service" "pcf_ntp_udp_ns_service" {
+  description       = "NTP Service for PCF - UDP"
+  display_name      = "pcf_ntp_udp_ns_service"
+  protocol          = "UDP"
+  destination_ports = ["123"]
+}
+
+# Syslog Service for PCF - TCP
+resource "nsxt_l4_port_set_ns_service" "pcf_syslog_tcp_ns_service" {
+  description       = "Syslog Service for PCF - TCP"
+  display_name      = "pcf_syslog_tcp_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["514"]
+}
+
+# Syslog Service for PCF - UDP
+resource "nsxt_l4_port_set_ns_service" "pcf_syslog_udp_ns_service" {
+  description       = "Syslog Service for PCF - UDP"
+  display_name      = "pcf_syslog_udp_ns_service"
+  protocol          = "UDP"
+  destination_ports = ["514"]
+}
+
+# SMTP Service for PCF
+resource "nsxt_l4_port_set_ns_service" "pcf_smtp_ns_service" {
+  description       = "SMTP Service for PCF"
+  display_name      = "pcf_smtp_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["25", "465", "587"]
+}
+
+# LDAP Service for PCF
+resource "nsxt_l4_port_set_ns_service" "pcf_ldap_ns_service" {
+  description       = "LDAP Service for PCF"
+  display_name      = "pcf_ldap_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["636", "389"]
+}
+
 # IPSec Service for PCF
 resource "nsxt_ip_protocol_ns_service" "pcf_ipsec_ns_service" {
   description  = "IPSec Service for PCF"
