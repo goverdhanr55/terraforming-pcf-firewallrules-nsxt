@@ -113,3 +113,27 @@ resource "nsxt_l4_port_set_ns_service" "pcf_ipsec_udp_encapsulation_ns_service" 
   protocol          = "UDP"
   destination_ports = ["500"]
 }
+
+# PostgreSQL Service for PCF
+resource "nsxt_l4_port_set_ns_service" "pcf_postgresql_ns_service" {
+  description       = "PostgreSQL Service for PCF"
+  display_name      = "pcf_postgresql_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["5432"]
+}
+
+# MySQL Service for PCF
+resource "nsxt_l4_port_set_ns_service" "pcf_mysql_ns_service" {
+  description       = "MySQL Service for PCF"
+  display_name      = "pcf_mysql_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["3306"]
+}
+
+# NATS Service for PCF
+resource "nsxt_l4_port_set_ns_service" "pcf_nats_ns_service" {
+  description       = "NATS Service for PCF"
+  display_name      = "pcf_nats_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["4222"]
+}
