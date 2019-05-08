@@ -146,14 +146,6 @@ resource "nsxt_l4_port_set_ns_service" "pcf_mysql_ns_service" {
   destination_ports = ["3306"]
 }
 
-# BOSH NATS Service for PCF
-resource "nsxt_l4_port_set_ns_service" "pcf_bosh_nats_ns_service" {
-  description       = "BOSH NATS Service for PCF"
-  display_name      = "pcf_bosh_nats_ns_service"
-  protocol          = "TCP"
-  destination_ports = ["4222"]
-}
-
 # BOSH Registry Service for PCF
 resource "nsxt_l4_port_set_ns_service" "pcf_bosh_registry_ns_service" {
   description       = "BOSH Registry Service for PCF"
@@ -184,4 +176,44 @@ resource "nsxt_l4_port_set_ns_service" "pcf_jmx_monitoring_rmi_registry_ns_servi
   display_name      = "pcf_jmx_monitoring_rmi_registry_ns_service"
   protocol          = "TCP"
   destination_ports = ["44445"]
+}
+
+# PCF Routing API Service
+resource "nsxt_l4_port_set_ns_service" "pcf_routing_api_ns_service" {
+  description       = "PCF Routing API Service - Routing API Port"
+  display_name      = "pcf_routing_api_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["3000"]
+}
+
+# PCF Doppler Metron Service for PCF
+resource "nsxt_l4_port_set_ns_service" "pcf_doppler_metron_ns_service" {
+  description       = "PCF Doppler Metron Service - Metron Endpoint Dropsonde Port"
+  display_name      = "pcf_doppler_metron_endpoint_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["3457"]
+}
+
+# PCF VXLAN Policy Agent Service
+resource "nsxt_l4_port_set_ns_service" "pcf_vxlan_policy_agent_ns_service" {
+  description       = "PCF VXLAN Policy Agent Service - CF Networking Policy Server Internal Listen Port"
+  display_name      = "pcf_vxlan_policy_agent_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["4003"]
+}
+
+# PCF Silk Controller Service
+resource "nsxt_l4_port_set_ns_service" "pcf_silk_controller_ns_service" {
+  description       = "PCF Silk Controller Service - CF Networking Silk Controller Listen Port"
+  display_name      = "pcf_silk_controller_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["4103"]
+}
+
+# PCF NATS Service
+resource "nsxt_l4_port_set_ns_service" "pcf_nats_ns_service" {
+  description       = "PCF NATS Service - Router NATS Port"
+  display_name      = "pcf_nats_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["4222"]
 }
