@@ -20,12 +20,28 @@ resource "nsxt_l4_port_set_ns_service" "pcf_http_ns_service" {
   destination_ports = ["80"]
 }
 
+# HTTP Service for PCF - 8080
+resource "nsxt_l4_port_set_ns_service" "pcf_http_8080_ns_service" {
+  description       = "HTTP Service for PCF - 8080"
+  display_name      = "pcf_http_8080_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["8080"]
+}
+
 # HTTPS Service for PCF
 resource "nsxt_l4_port_set_ns_service" "pcf_https_ns_service" {
   description       = "HTTPS Service for PCF"
   display_name      = "pcf_https_ns_service"
   protocol          = "TCP"
   destination_ports = ["443"]
+}
+
+# HTTPS Service for PCF - 8443
+resource "nsxt_l4_port_set_ns_service" "pcf_https_8443_ns_service" {
+  description       = "HTTPS Service for PCF - 8443"
+  display_name      = "pcf_https_8443_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["8443"]
 }
 
 # DNS Service for PCF - TCP
@@ -130,10 +146,26 @@ resource "nsxt_l4_port_set_ns_service" "pcf_mysql_ns_service" {
   destination_ports = ["3306"]
 }
 
-# NATS Service for PCF
-resource "nsxt_l4_port_set_ns_service" "pcf_nats_ns_service" {
-  description       = "NATS Service for PCF"
-  display_name      = "pcf_nats_ns_service"
+# BOSH NATS Service for PCF
+resource "nsxt_l4_port_set_ns_service" "pcf_bosh_nats_ns_service" {
+  description       = "BOSH NATS Service for PCF"
+  display_name      = "pcf_bosh_nats_ns_service"
   protocol          = "TCP"
   destination_ports = ["4222"]
+}
+
+# BOSH Registry Service for PCF
+resource "nsxt_l4_port_set_ns_service" "pcf_bosh_registry_ns_service" {
+  description       = "BOSH Registry Service for PCF"
+  display_name      = "pcf_bosh_registry_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["25777"]
+}
+
+# BOSH Blobstore Service for PCF
+resource "nsxt_l4_port_set_ns_service" "pcf_bosh_blobstore_ns_service" {
+  description       = "BOSH Blobstore Service for PCF"
+  display_name      = "pcf_bosh_blobstore_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["25250"]
 }
