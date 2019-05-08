@@ -169,3 +169,19 @@ resource "nsxt_l4_port_set_ns_service" "pcf_bosh_blobstore_ns_service" {
   protocol          = "TCP"
   destination_ports = ["25250"]
 }
+
+# JMX Monitoring Server Service for PCF
+resource "nsxt_l4_port_set_ns_service" "pcf_jmx_monitoring_server_ns_service" {
+  description       = "JMX Monitoring Server Service for PCF"
+  display_name      = "pcf_jmx_monitoring_server_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["44444"]
+}
+
+# JMX Monitoring RMI Registry Service for PCF
+resource "nsxt_l4_port_set_ns_service" "pcf_jmx_monitoring_rmi_registry_ns_service" {
+  description       = "JMX Monitoring RMI Registry Service for PCF"
+  display_name      = "pcf_jmx_monitoring_rmi_registry_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["44445"]
+}
