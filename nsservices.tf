@@ -186,10 +186,10 @@ resource "nsxt_l4_port_set_ns_service" "pcf_routing_api_ns_service" {
   destination_ports = ["3000"]
 }
 
-# PCF Doppler Metron Service for PCF
+# PCF Doppler Metron Service
 resource "nsxt_l4_port_set_ns_service" "pcf_doppler_metron_ns_service" {
   description       = "PCF Doppler Metron Service - Metron Endpoint Dropsonde Port"
-  display_name      = "pcf_doppler_metron_endpoint_ns_service"
+  display_name      = "pcf_doppler_metron_ns_service"
   protocol          = "TCP"
   destination_ports = ["3457"]
 }
@@ -216,4 +216,20 @@ resource "nsxt_l4_port_set_ns_service" "pcf_nats_ns_service" {
   display_name      = "pcf_nats_ns_service"
   protocol          = "TCP"
   destination_ports = ["4222"]
+}
+
+# PCF Diego File Server Service
+resource "nsxt_l4_port_set_ns_service" "pcf_diego_file_server_ns_service" {
+  description       = "PCF Diego File Server Service - Diego File Server Listen Address"
+  display_name      = "pcf_diego_file_server_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["8080"]
+}
+
+# PCF Doppler gRPC Service
+resource "nsxt_l4_port_set_ns_service" "pcf_doppler_grpc_ns_service" {
+  description       = "PCF Doppler gRPC Service - Loggregator Doppler gRPC Port"
+  display_name      = "pcf_doppler_grpc_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["8082"]
 }
