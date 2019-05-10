@@ -233,3 +233,37 @@ resource "nsxt_l4_port_set_ns_service" "pcf_doppler_grpc_ns_service" {
   protocol          = "TCP"
   destination_ports = ["8082"]
 }
+
+# PCF Reverse Log Proxy Gateway Service
+resource "nsxt_l4_port_set_ns_service" "pcf_reverse_log_proxy_gateway_ns_service" {
+  description       = "PCF Reverse Log Proxy Gateway Service - Loggregator Reverse Log Proxy Gateway - CF Auth Proxy Proxy Port"
+  display_name      = "pcf_reverse_log_proxy_gateway_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["8083"]
+}
+
+# PCF UAA Service
+resource "nsxt_l4_port_set_ns_service" "pcf_uaa_ns_service" {
+  description       = "PCF UAA Service - UAA SSL Port"
+  display_name      = "pcf_uaa_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["8443"]
+}
+
+# PCF Credhub Service
+resource "nsxt_l4_port_set_ns_service" "pcf_credhub_ns_service" {
+  description       = "PCF Credhub Service - Credhub Port"
+  display_name      = "pcf_credhub_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["8844"]
+}
+
+# PCF BOSH DNS Health Service
+resource "nsxt_l4_port_set_ns_service" "pcf_bosh_dns_health_ns_service" {
+  description       = "PCF BOSH DNS Health Service - Health Server Port from BOSH DNS Release"
+  display_name      = "pcf_bosh_dns_health_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["8853"]
+}
+
+
