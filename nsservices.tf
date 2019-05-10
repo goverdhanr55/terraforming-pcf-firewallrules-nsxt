@@ -220,7 +220,7 @@ resource "nsxt_l4_port_set_ns_service" "pcf_nats_ns_service" {
 
 # PCF Diego File Server Service
 resource "nsxt_l4_port_set_ns_service" "pcf_diego_file_server_ns_service" {
-  description       = "PCF Diego File Server Service - Diego File Server Listen Address"
+  description       = "PCF Diego File Server Service - Diego File Server Listen Addr"
   display_name      = "pcf_diego_file_server_ns_service"
   protocol          = "TCP"
   destination_ports = ["8080"]
@@ -266,4 +266,50 @@ resource "nsxt_l4_port_set_ns_service" "pcf_bosh_dns_health_ns_service" {
   destination_ports = ["8853"]
 }
 
+# PCF Diego BBS Service
+resource "nsxt_l4_port_set_ns_service" "pcf_diego_bbs_ns_service" {
+  description       = "PCF Diego BBS Service - Diego Rep BBS API Location"
+  display_name      = "pcf_diego_bbs_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["8889"]
+}
 
+# PCF Diego Database (Locket) Service
+resource "nsxt_l4_port_set_ns_service" "pcf_diego_database_locket_ns_service" {
+  description       = "PCF Diego Database (Locket) Service - Diego Locket Listen Addr"
+  display_name      = "pcf_diego_database_locket_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["8891"]
+}
+
+# PCF CC Stager Service
+resource "nsxt_l4_port_set_ns_service" "pcf_cc_stager_ns_service" {
+  description       = "PCF CC Stager Service - CAPI Stager CC External Port"
+  display_name      = "pcf_cc_stager_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["9022"]
+}
+
+# PCF CC TPS Service
+resource "nsxt_l4_port_set_ns_service" "pcf_cc_tps_ns_service" {
+  description       = "PCF CC TPS Service - CAPI TPS CC External Port"
+  display_name      = "pcf_cc_tps_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["9023"]
+}
+
+# PCF CC Uploader HTTP Service
+resource "nsxt_l4_port_set_ns_service" "pcf_cc_uploader_http_ns_service" {
+  description       = "PCF CC Uploader HTTP Service - HTTP Port"
+  display_name      = "pcf_cc_uploader_http_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["9090"]
+}
+
+# PCF CC Uploader HTTPS Service
+resource "nsxt_l4_port_set_ns_service" "pcf_cc_uploader_https_ns_service" {
+  description       = "PCF CC Uploader HTTPS Service - HTTPS Port"
+  display_name      = "pcf_cc_uploader_https_ns_service"
+  protocol          = "TCP"
+  destination_ports = ["9091"]
+}
